@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :items
+  resources :categories
   resources :menus
   resources :restaurants
   resources :users
