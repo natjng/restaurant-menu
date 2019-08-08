@@ -1,8 +1,20 @@
-User show page
+<h1>Welcome, <%= @user.name %>!</h1>
+Email: <%= @user.email %>
+<br />
+User ID or Facebook UID: <%= @user.id %>
+<br />
 
-<h3><%= @user.name %></h3>
-<h3><%= @user.email %></h3>
-<h3>User ID or Facebook UID: <%= @user.id %></h3>
+<h2>Restaurants</h2>
+<ul>
+<% @user.restaurants.each do |r| %>
+    <li>
+        <%= r.name %><br />
+        <% r.menus.each do |menu| %>
+            <%= menu.name %>, 
+        <% end %>
+    </li>
+<% end %>
+</ul>
 
 <br />
 <br />
