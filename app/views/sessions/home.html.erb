@@ -1,4 +1,9 @@
 <h1>Welcome to Restaurant Menu</h1>
 <br />
-
-<%= link_to "Signup with Facebook", "/auth/facebook" %>
+<% if session[:user_id] %>
+    <h3><%= @user.username %></h3>
+    <h3><%= @user.email %></h3>
+    <h3>Facebook UID: <%= @user.id %></h3>
+<% else %>
+    <%= link_to "Signup with Facebook", "/auth/facebook" %>
+<% end %>
