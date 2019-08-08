@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        redirect_to '/' if !@user
     end
 
     def destroy
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name, :email, :password)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
 end
