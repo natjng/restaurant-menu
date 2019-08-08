@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'sessions#home'
+  get '/auth/facebook/callback', to: 'sessions#create'
   resources :items
   resources :categories
   resources :menus
