@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
     def home
-
+        if session[:user_id]
+            @user = User.find_by(id: session[:user_id])
+        end
     end
 
     def create 
@@ -8,7 +10,7 @@ class SessionsController < ApplicationController
             u.username = auth['info']['name']
             u.email = auth['info']['email']
         end
-        sessions[:user_id] = @user.id
+        session[:user_id] = @user.id
         render :home
     end
 
