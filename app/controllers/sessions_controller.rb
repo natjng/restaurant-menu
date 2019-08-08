@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
         # end
     end
 
+    def new
+        @user = User.new
+    end
+
     def create 
         @user = User.find_or_create_by(id: auth['uid']) do |u|
             u.name = auth['info']['name']
@@ -12,6 +16,11 @@ class SessionsController < ApplicationController
         end
         session[:user_id] = @user.id
         render 'users/show'
+    end
+
+    def destroy
+        session.destroy
+        redirect_to '/'
     end
 
     private
