@@ -1,0 +1,17 @@
+User show page
+
+<h3><%= @user.name %></h3>
+<h3><%= @user.email %></h3>
+<h3>User ID or Facebook UID: <%= @user.id %></h3>
+
+<br />
+<br />
+<%= link_to "Logout", logout_path %>
+
+<% if session[:user_id] %>
+    <h3><%= @user.name %></h3>
+    <h3><%= @user.email %></h3>
+    <h3>User ID or Facebook UID: <%= @user.id %></h3>
+<% else %>
+    <%= link_to "Signup with Facebook", "/auth/facebook" %>
+<% end %>
