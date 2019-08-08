@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :destroy]
 
+    def new
+        @user = User.new
+    end
 
+    def show
+    end
 
     def destroy
         session.destroy
