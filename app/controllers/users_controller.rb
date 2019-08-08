@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :destroy]
+    before_action :set_user, only: [:show]
 
     def new
         @user = User.new
@@ -17,11 +17,6 @@ class UsersController < ApplicationController
 
     def show
         redirect_to '/' if !@user
-    end
-
-    def destroy
-        session.destroy
-        redirect_to '/'
     end
 
     private
