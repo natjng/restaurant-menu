@@ -1,0 +1,18 @@
+<div>
+<%= image_tag(@item.image) %>
+</div>
+
+<h1><%= @item.name %></h1>
+<p>Category: <%= @item.category.name %></p>
+
+<div>
+<%= number_to_currency(@item.price) %><br />
+<%= @item.description %><br />
+</div>
+
+<br />
+<br />
+
+<div>
+<%= link_to "Back to #{@item.menu.name}", @item.menu %> | <%= link_to @item.menu.restaurant.name, @item.menu.restaurant %>
+</div>
