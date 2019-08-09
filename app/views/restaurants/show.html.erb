@@ -1,0 +1,16 @@
+<h1><%= @restaurant.name %></h1>
+
+<div>
+<b>Cuisine: </b><%= @restaurant.cuisine %><br />
+<b>Address: </b><%= @restaurant.address %><br />
+<b>Hours: </b><%= @restaurant.hours %><br />
+<b>Phone Number: </b><%= number_to_phone(@restaurant.phone_number) %>
+</div>
+
+<ul>
+<% @restaurant.menus.each do |menu| %>
+    <li>
+        <%= link_to menu.name, menu %>
+    </li>
+<% end %>
+</ul>
