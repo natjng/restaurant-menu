@@ -17,6 +17,14 @@ class MenusController < ApplicationController
         end
     end
 
+    def update
+        if @menu.update(menu_params)
+            redirect_to @menu
+        else
+            render :edit
+        end
+    end
+
     private
 
     def set_menu
