@@ -6,9 +6,12 @@
 </p>
 
 <ul>
-<% @menu.items.each do |item| %>
+<% @menu.categories.uniq.each do |category| %>
     <li>
-        <%= link_to item.name, item %>
+        <b><%= link_to category.name, category %></b><br />
+        <% category.items.each do |item| %>
+            <%= link_to item.name, item %><br />
+        <% end %>
     </li>
 <% end %>
 </ul>
