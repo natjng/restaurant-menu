@@ -1,6 +1,10 @@
 <h1>Create a New Menu</h1>
 
 <%= form_for @menu do |f| %>
+
+    <%= f.label :restaurant_id %><br />
+    <%= f.collection_select :restaurant_id, current_user.restaurants, :id, :name %><br /><br />
+
     <%= f.label :name %><br />
     <%= f.text_field :name %><br /><br />
 
