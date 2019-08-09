@@ -1,0 +1,18 @@
+<h1><%= current_user.name %></h1>
+<h3>All Categories</h3>
+
+<ul>
+<% current_user.restaurants.each do |r| %>
+    <li>
+    Restaurant: <%= link_to r.name, r %><br />
+    <% r.menus.each do |menu| %>
+    
+        Menu: <%= link_to menu.name, menu %><br />
+        Categories: 
+        <% menu.categories.uniq.each do |category| %>
+            <%= link_to category.name, category %>
+        <% end %>
+    <% end %>
+    </li>
+<% end %>
+</ul>
