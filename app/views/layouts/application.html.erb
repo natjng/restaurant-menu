@@ -10,6 +10,26 @@
   </head>
 
   <body>
+
+    <div>
+      <% if logged_in? %>
+        <%= link_to "Dashboard", user_path(current_user) %> | <%= link_to "Restaurants", restaurants_path %> | <%= link_to "Menus", menus_path %> | <%= link_to "Categories", categories_path %> | <%= link_to "Items", items_path %> | <%= link_to "Logout", logout_path %>
+
+        <br />
+
+        <%= link_to "+ Restaurant", new_restaurant_path %> | <%= link_to "+ Menu", new_menu_path %> | <%= link_to "+ Category", new_category_path %> | <%= link_to "+ Item", new_item_path %>
+      <% end %>
+    </div>
+  
     <%= yield %>
+
+    <br />
+    <br />
+    <div>
+      <% if logged_in? %>
+        Logged in as: <%= current_user.name %>
+      <% end %>
+    </div>
+
   </body>
 </html>
