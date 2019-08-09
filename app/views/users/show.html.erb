@@ -1,16 +1,16 @@
 <h1>Welcome, <%= @user.name %>!</h1>
 Email: <%= @user.email %>
 <br />
-User ID or Facebook UID: <%= @user.id %>
+User ID: <%= @user.id %>
 <br />
 
 <h2>Restaurants</h2>
 <ul>
 <% @user.restaurants.each do |r| %>
     <li>
-        <%= r.name %><br />
+        <%= link_to r.name, r %><br />
         <% r.menus.each do |menu| %>
-            <%= menu.name %>, 
+            Menu: <%= link_to menu.name, menu %>
         <% end %>
     </li>
 <% end %>
