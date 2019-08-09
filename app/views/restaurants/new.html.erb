@@ -1,0 +1,20 @@
+<h1>Create a New Restaurant</h1>
+
+<%= form_for @restaurant do |f| %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br /><br />
+
+    <%= f.label :cuisine %><br />
+    <%= f.text_field :cuisine %><br /><br />
+
+    <%= f.label :address %><br />
+    <%= f.text_area :address %><br /><br />
+
+    <%= f.label :phone_number %><br />
+    <%= f.number_field :phone_number %><br /><br />
+
+    <%= f.label :hours %><br />
+    <%= f.text_area :hours %><br /><br />
+
+    <%= f.submit %>
+<% end %>
