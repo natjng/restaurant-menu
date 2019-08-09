@@ -1,0 +1,18 @@
+<h1><%= @menu.restaurant.name %></h1>
+<h2><%= @menu.name %></h2>
+
+<p>
+<%= @menu.description %>
+</p>
+
+<ul>
+<% @menu.items.each do |item| %>
+    <li>
+        <%= link_to item.name, item %>
+    </li>
+<% end %>
+</ul>
+
+<div>
+<%= link_to "Back to #{@menu.restaurant.name}", @menu.restaurant %> | <%= link_to "All Menus", menus_path %>
+</div>
