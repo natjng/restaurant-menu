@@ -16,6 +16,14 @@
 <% end %>
 </ul>
 
+<br />
+<br />
+
+<%= link_to "Edit", edit_menu_path(@menu) %>
+
+<br />
+<br />
+
 <div>
 <%= link_to "Back to #{@menu.restaurant.name}", @menu.restaurant %> | <%= link_to "All Menus", menus_path %>
 </div>

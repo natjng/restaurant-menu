@@ -13,6 +13,11 @@
 <br />
 <br />
 
+<%= link_to "Edit", edit_item_path(@item) %>
+
+<br />
+<br />
+
 <div>
 <%= link_to "Back to #{@item.menu.name}", @item.menu %> | <%= link_to @item.menu.restaurant.name, @item.menu.restaurant %>
 </div>
