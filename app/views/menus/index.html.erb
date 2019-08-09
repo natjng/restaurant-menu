@@ -4,8 +4,9 @@
 <% current_user.restaurants.each do |r| %>
     <li>
         Restaurant: <%= link_to r.name, r %>
+        Menus: 
         <% r.menus.each do |menu| %> | 
-            Menus: <%= link_to menu.name, menu %>
+            <%= link_to menu.name, menu %>
         <% end %>
     </li>
 <% end %>
