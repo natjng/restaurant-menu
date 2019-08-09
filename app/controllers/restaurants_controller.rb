@@ -20,6 +20,15 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.find_by(id: params[:id])
     end
 
+    def update
+        @restaurant = Restaurant.find_by(id: params[:id])
+        if @restaurant.update(restaurant_params)
+            redirect_to @restaurant
+        else
+            render :edit
+        end
+    end
+
     private
 
     def restaurant_params
