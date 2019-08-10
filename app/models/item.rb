@@ -4,4 +4,6 @@ class Item < ApplicationRecord
 
   belongs_to :menu
   belongs_to :category
+
+  scope :no_price, -> { where(price: nil) }
 end
