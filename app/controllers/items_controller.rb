@@ -17,6 +17,10 @@ class ItemsController < ApplicationController
         end
     end
 
+    def no_price
+        render :no_price
+    end
+
     private
 
     def set_item
