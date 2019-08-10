@@ -1,0 +1,31 @@
+<h1>Add a New Item</h1>
+
+<%= form_for @item do |f| %>
+
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br /><br />
+
+    <%= f.label :description %><br />
+    <%= f.text_area :description %><br /><br />
+
+    <%= f.label :price %><br />
+    <%= f.text_field :price %><br /><br />
+
+    <%= f.label :image, "Image Link" %><br />
+    <%= f.text_field :image %><br /><br />
+
+    <%= f.label :category_id, "Category" %><br />
+    <%= f.text_field :category_id, list: "categories" %>
+    <datalist id="categories">
+        <% Category.all.each do |cat| %>
+            <option value="<%= cat.id %>"><%= cat.name %></option>
+        <% end %>
+    </datalist>
+    <br /><br />
+
+    <%= menu_id_field(@item) %><br /><br />
+
+    <%= f.submit %>
+<% end %>
+
+<%= button_to "Cancel", menus_path, method: "get" %>
