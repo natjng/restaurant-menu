@@ -15,6 +15,18 @@ class ItemsController < ApplicationController
     end
 
     def show
+        if params[:menu_id]
+            @menu = Menu.find_by(id: params[:menu_id])
+            @item = @menu.items.find_by(id: params[:id])
+            if @item.nil?
+                redirect_to menu_items_path(@menu), alert: "Item not found."
+            end
+        else
+            @item = Item.find_by(id: params[:id])
+            if @item.nil?
+                redirect_to items_path, alert: "Item not found."
+            end
+        end
     end
 
     def new
@@ -32,6 +44,10 @@ class ItemsController < ApplicationController
 
     def no_price
         render :no_price
+    end
+
+    def recently_updated
+
     end
 
     private
