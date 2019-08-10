@@ -14,6 +14,14 @@ class CategoriesController < ApplicationController
         end
     end
 
+    def update
+        if @category.update(category_params)
+            redirect_to @category
+        else
+            render :edit
+        end
+    end
+
     private
 
     def set_category
