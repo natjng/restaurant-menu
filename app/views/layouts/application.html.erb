@@ -20,6 +20,11 @@
         <%= link_to "+ Restaurant", new_restaurant_path %> | <%= link_to "+ Menu", new_menu_path %> | <%= link_to "+ Category", new_category_path %> | <%= link_to "+ Item", new_item_path %>
       <% end %>
     </div>
+
+    <br><br>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
   
     <%= yield %>
 
