@@ -5,14 +5,20 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-  get '/items/no_price', to: 'items#no_price'
-  
   get '/auth/facebook/callback', to: 'sessions#create'
+
+  get '/items/no_price', to: 'items#no_price'
+  get '/restaurants/address_like', to: 'restaurants#address_like'
   
   resources :items
   resources :categories
   resources :menus
   resources :restaurants
   resources :users
+
+  resources :menus do
+    resources :items, only: [:index, :show, :new, :edit]
+    resources :categories, only: [:index, :show, :new, :edit]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
