@@ -2,6 +2,19 @@
 
 <%= form_for @item do |f| %>
 
+    Menu 
+    <br />
+    <%= menu_select(@item.menu, @item) %><br /><br />
+
+    <%= f.label :category_id, "Category" %><br />
+    <%= f.text_field :category_name, list: "categories" %>
+    <datalist id="categories">
+        <% Category.all.each do |cat| %>
+            <option value="<%= cat.name %>">
+        <% end %>
+    </datalist>
+    <br /><br />
+
     <%= f.label :name %><br />
     <%= f.text_field :name %><br /><br />
 
@@ -13,17 +26,6 @@
 
     <%= f.label :image, "Image Link" %><br />
     <%= f.text_field :image %><br /><br />
-
-    <%= f.label :category_id, "Category" %><br />
-    <%= f.text_field :category_id, list: "categories" %>
-    <datalist id="categories">
-        <% Category.all.each do |cat| %>
-            <option value="<%= cat.id %>"><%= cat.name %></option>
-        <% end %>
-    </datalist>
-    <br /><br />
-
-    <%= menu_id_field(@item) %><br /><br />
 
     <%= f.submit %>
 <% end %>
