@@ -1,6 +1,19 @@
 class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :edit, :update]
 
+    def index
+        if params[:menu_id]
+            @menu = Menu.find_by(id: params[:menu_id])
+            if @menu.nil?
+                redirect_to menus_path, alert: "Menu not found."
+            else
+                @items = @menu.items
+            end
+        else
+            @items = Item.all
+        end
+    end
+
     def show
     end
 
