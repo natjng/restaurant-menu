@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
+    before_action :require_login
 
     def current_user
         @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -9,8 +10,13 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
-    def redirect_if_not_logged_in
-        redirect_to '/' if !logged_in?
+    private
+
+    def require_login
+        unless logged_in?
+            flash[:error] = "You must be logged in to access this page."
+            redirect_to :root
+        end
     end
 
 end

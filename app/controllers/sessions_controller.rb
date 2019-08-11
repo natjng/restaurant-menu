@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    skip_before_action :require_login, only: [:home, :new, :create]
+
     def home
         if logged_in?
             @user = current_user
