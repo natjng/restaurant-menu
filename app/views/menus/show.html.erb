@@ -7,8 +7,10 @@
 <% @menu.categories.uniq.each do |category| %>
         <h3><%= link_to category.name, category %></h3>
         <% category.items.each do |item| %>
-            <%= link_to item.name, item %>
-            <%= number_to_currency(item.price) %><br />
+            <% if item.menu == @menu %>
+                <%= link_to item.name, item %>
+                <%= number_to_currency(item.price) %><br />
+            <% end %>
         <% end %><br />
 <% end %>
 
