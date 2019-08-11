@@ -3,6 +3,9 @@
 
 <h1>Items</h1>
 
+<%= link_to "+ Item", new_item_path %>
+<br><br>
+
 <% @items.each do |item| %>
     <%= link_to item.name, item %>
     <%= number_to_currency(item.price) %><br>

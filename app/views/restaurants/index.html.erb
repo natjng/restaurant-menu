@@ -1,5 +1,8 @@
 <h1>Restaurants</h1>
 
+<%= link_to "+ Restaurant", new_restaurant_path %>
+<br><br>
+
 <% current_user.restaurants.each do |r| %>
         <%= link_to r.name, r %><br>
 <% end %>

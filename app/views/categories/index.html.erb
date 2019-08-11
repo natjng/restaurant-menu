@@ -1,5 +1,9 @@
 <h1>Categories</h1>
 
+<%= link_to "+ Category", new_category_path %>
+
+<br><br>
+
 <% current_user.restaurants.each do |r| %>
     <% r.menus.each do |menu| %>
         <h3>Menu: <%= link_to menu.name, menu %></h3> 
