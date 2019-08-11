@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   get '/auth/facebook/callback', to: 'sessions#create'
 
   get '/items/no_price', to: 'items#no_price'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :menus
   resources :restaurants
-  resources :users
+  resources :users, except: [:index, :destroy]
 
   resources :menus do
     resources :items, only: [:index, :show, :new, :edit]
