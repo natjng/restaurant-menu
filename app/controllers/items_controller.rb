@@ -32,7 +32,6 @@ class ItemsController < ApplicationController
     def new
         if params[:menu_id] && !Menu.exists?(params[:menu_id])
             redirect_to menus_path, alert: "Menu not found."
-        elsif params[:menu_id] && !Menu.exists?(params[:menu_id])
         else
             @item = Item.new(menu_id: params[:menu_id])
         end
