@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
                 @items = @menu.items
             end
         else
-            @items = Item.all
+            @items = User.all_items(current_user)
         end
     end
 
