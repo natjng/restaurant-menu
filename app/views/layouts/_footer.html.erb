@@ -1,0 +1,5 @@
+<br /><br /><br /><br /><br /><br />
+
+<% if logged_in? %>
+    Logged in as: <%= current_user.name %> | <%= link_to "Logout", logout_path %>
+<% end %>

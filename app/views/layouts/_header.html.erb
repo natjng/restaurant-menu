@@ -1,0 +1,3 @@
+<% if logged_in? %>
+    <%= link_to "Dashboard", user_path(current_user) %> | <%= link_to "Restaurants", restaurants_path %> | <%= link_to "Menus", menus_path %> | <%= link_to "Categories", categories_path %> | <%= link_to "Items", items_path %>
+<% end %>
