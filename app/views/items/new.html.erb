@@ -1,5 +1,19 @@
 <h1>Add a New Item</h1>
 
+<% if @item.errors.any? %>
+  <div id="error_explanation">
+    <h3>
+      <%= pluralize(@item.errors.count, "error") %>:
+    </h3>
+ 
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @item do |f| %>
 
     <label>Menu<br>
