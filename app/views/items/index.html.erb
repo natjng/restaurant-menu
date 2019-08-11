@@ -1,14 +1,10 @@
 <h1>All Items</h1>
 
-<ul>
 <% current_user.restaurants.each do |r| %>
-    <%= link_to r.name, r %> 
     <% r.menus.each do |menu| %>
         <% menu.items.each do |item| %>
-            <li>
-            <%= link_to item.name, item %> <%= number_to_currency(item.price) %>
-            </li>
+            <%= link_to item.name, item %>
+            <%= number_to_currency(item.price) %><br>
         <% end %>
     <% end %>
 <% end %>
-</ul>

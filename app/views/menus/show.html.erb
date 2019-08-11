@@ -5,21 +5,18 @@
 <%= @menu.description %>
 </p>
 
-<ul>
 <% @menu.categories.uniq.each do |category| %>
-    <li>
-        <b><%= link_to category.name, category %></b><br />
+        <h3><%= link_to category.name, category %></h3>
         <% category.items.each do |item| %>
-            <%= link_to item.name, item %><br />
-        <% end %>
-    </li>
+            <%= link_to item.name, item %>
+            <%= number_to_currency(item.price) %><br />
+        <% end %><br />
 <% end %>
-</ul>
 
 <br />
 <br />
 
-<%= link_to "Edit", edit_menu_path(@menu) %> | <%= link_to "Add Item to Menu", new_menu_item_path(@menu) %>
+<%= link_to "Edit Menu", edit_menu_path(@menu) %> | <%= link_to "Add Item to Menu", new_menu_item_path(@menu) %>
 
 <br />
 <br />
