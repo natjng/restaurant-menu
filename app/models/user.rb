@@ -13,4 +13,16 @@ class User < ApplicationRecord
         end
     end
 
+    def self.all_items(current_user)
+        user_items = []
+        current_user.restaurants.each do |r|
+            r.menus.each do |menu|
+                menu.items.each do |item|
+                    user_items << item
+                end
+            end
+        end
+        user_items
+    end
+
 end
