@@ -14,7 +14,10 @@
         <% end %><br />
 <% end %>
 
-<br />
-<br />
+<br /><br />
 
-<%= link_to "Edit Menu", edit_menu_path(@menu) %> | <%= link_to "Add Item to Menu", new_menu_item_path(@menu) %>
+<%= link_to "Add Item to Menu", new_menu_item_path(@menu) %>
+
+<br /><br />
+
+<%= link_to "Edit Menu", edit_menu_path(@menu) %> | <%= link_to "Delete Menu", @menu, method: :delete, data: { confirm: "Are you sure?" } %>

@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-    before_action :set_restaurant, only: [:show, :edit, :update]
+    before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
     def show
     end
@@ -26,6 +26,14 @@ class RestaurantsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @restaurant.destroy
+        redirect_to restaurants_path
+    end
+
+    def address_like
     end
 
     private

@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-    before_action :set_menu, only: [:show, :edit, :update]
+    before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
     def show
     end
@@ -23,6 +23,11 @@ class MenusController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @menu.destroy
+        redirect_to menus_path
     end
 
     private

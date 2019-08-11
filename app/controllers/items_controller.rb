@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-    before_action :set_item, only: [:show, :edit, :update]
+    before_action :set_item, only: [:show, :edit, :update, :destroy]
 
     def index
         if params[:menu_id]
@@ -54,8 +54,13 @@ class ItemsController < ApplicationController
         end
     end
 
+    def destroy
+        @item.destroy
+        redirect_to items_path
+    end
+
     def no_price
-        render :no_price
+        # render :no_price
     end
 
     def recently_updated

@@ -17,4 +17,4 @@
 <br />
 <br />
 
-<%= link_to "Edit Item", edit_item_path(@item) %>
+<%= link_to "Edit Item", edit_item_path(@item) %> | <%= link_to "Delete Item", @item, method: :delete, data: { confirm: "Are you sure?" } %>

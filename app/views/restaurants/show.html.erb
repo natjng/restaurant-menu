@@ -14,4 +14,4 @@
 
 <br />
 <br />
-<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
+<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %> | <%= link_to "Delete Restaurant", @restaurant, method: :delete, data: { confirm: "Are you sure?" } %>
