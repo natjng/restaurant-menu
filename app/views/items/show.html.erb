@@ -1,9 +1,13 @@
+<br>
+<div>
+<%= link_to @item.menu.restaurant.name, @item.menu.restaurant %> / <%= link_to @item.menu.name, @item.menu %> / <%= link_to @item.category.name, @item.category %>
+</div>
+
 <div>
 <%= image_tag(@item.image) %>
 </div>
 
 <h1><%= @item.name %></h1>
-<p>Category: <%= @item.category.name %></p>
 
 <div>
 <%= number_to_currency(@item.price) %><br />
@@ -13,11 +17,4 @@
 <br />
 <br />
 
-<%= link_to "Edit", edit_item_path(@item) %>
-
-<br />
-<br />
-
-<div>
-<%= link_to "Back to #{@item.menu.name}", @item.menu %> | <%= link_to @item.menu.restaurant.name, @item.menu.restaurant %>
-</div>
+<%= link_to "Edit Item", edit_item_path(@item) %>

@@ -1,14 +1,10 @@
 <h1><%= @category.name %></h1>
 
-<ul>
 <% @category.items.each do |item| %>
-    <li>
-        <%= link_to item.name, item %>
-    </li>
+    <%= link_to item.name, item %><br>
 <% end %>
-</ul>
 
 <br />
 <br />
 
-<%= link_to "Edit", edit_category_path(@category) %>
+<%= link_to "Edit Category", edit_category_path(@category) %>

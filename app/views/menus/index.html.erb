@@ -1,8 +1,7 @@
 <h1>Menus</h1>
 
 <% current_user.restaurants.each do |r| %>
-    <h3><%= link_to r.name, r %></h3>
     <% r.menus.each do |menu| %>
         <%= link_to menu.name, menu %><br>
-    <% end %><br>
+    <% end %>
 <% end %>
