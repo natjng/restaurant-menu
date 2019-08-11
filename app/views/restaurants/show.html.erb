@@ -7,14 +7,10 @@
 <b>Phone Number: </b><%= number_to_phone(@restaurant.phone_number) %>
 </div>
 
-<h2>Menus</h2>
-<ul>
+<h3>Menus</h3>
 <% @restaurant.menus.each do |menu| %>
-    <li>
-        <%= link_to menu.name, menu %>
-    </li>
+        <%= link_to menu.name, menu %><br>
 <% end %>
-</ul>
 
 <br />
 <br />
