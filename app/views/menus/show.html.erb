@@ -1,5 +1,5 @@
 <h1><%= @menu.restaurant.name %></h1>
-<h2><%= @menu.name %></h2>
+<h2>Menu: <%= @menu.name %></h2>
 
 <p>
 <%= @menu.description %>
@@ -19,7 +19,7 @@
 <br />
 <br />
 
-<%= link_to "Edit", edit_menu_path(@menu) %>
+<%= link_to "Edit", edit_menu_path(@menu) %> | <%= link_to "Add Item to Menu", new_menu_item_path(@menu) %>
 
 <br />
 <br />
