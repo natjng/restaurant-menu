@@ -30,11 +30,17 @@ class ItemsController < ApplicationController
     end
 
     def new
-        @item = Item.new
+        if params[:menu_id] && !Menu.exists?(params[:menu_id])
+            redirect_to menus_path, alert: "Menu not found."
+        elsif params[:menu_id] && !Menu.exists?(params[:menu_id])
+        else
+            @item = Item.new(menu_id: params[:menu_id])
+        end
     end
 
     def create
         @item = Item.new(item_params)
+        # byebug
         if @item.save
             redirect_to @item
         else
@@ -57,7 +63,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-        params.require(:item).permit(:name, :description, :price, :image, :menu_id, :category_id)
+        params.require(:item).permit(:name, :description, :price, :image, :menu_id, :category_name)
     end
 
 end
