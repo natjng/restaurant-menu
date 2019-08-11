@@ -1,9 +1,11 @@
 class Item < ApplicationRecord
-  validates :name, presence: true
-  validates :price, numericality: true, allow_nil: true
-
   belongs_to :menu
   belongs_to :category
+
+  validates :name, presence: true
+  validates :price, numericality: true, allow_nil: true
+  validates_associated :menu
+  validates_associated :category
 
   scope :no_price, -> { where(price: nil) }
 
