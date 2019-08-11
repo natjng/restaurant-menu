@@ -1,18 +1,13 @@
 <h1>Welcome, <%= @user.name %>!</h1>
-Email: <%= @user.email %>
-<br />
-User ID: <%= @user.id %>
-<br />
 
-<h2>Restaurants</h2>
-<ul>
-<% @user.restaurants.each do |r| %>
-    <li>
-        <%= link_to r.name, r %><br />
-        Menu: 
-        <% r.menus.each do |menu| %>
-            <%= link_to menu.name, menu %><br />
-        <% end %>
-    </li>
-<% end %>
-</ul>
+<div>
+<h3>
+<%= link_to "+ Restaurant", new_restaurant_path %>
+<br />
+<%= link_to "+ Menu", new_menu_path %>
+<br />
+<%= link_to "+ Category", new_category_path %>
+<br />
+<%= link_to "+ Item", new_item_path %>
+</h3>
+</div>
