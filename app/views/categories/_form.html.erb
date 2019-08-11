@@ -1,0 +1,22 @@
+<% if @category.errors.any? %>
+  <div id="error_explanation">
+    <h3>
+      <%= pluralize(@category.errors.count, "error") %>:
+    </h3>
+ 
+    <ul>
+    <% @category.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @category do |f| %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br /><br />
+
+    <%= f.submit %>
+<% end %>
+
+<%= button_to "Cancel", categories_path, method: "get" %>
