@@ -2,9 +2,12 @@
 
 <%= form_for @item do |f| %>
 
-    Menu 
-    <br />
-    <%= menu_select(@item.menu, @item) %><br /><br />
+    <label>Menu<br>
+    <%= menu_select(@item.menu, @item) %>
+    </label>
+    <% if params[:menu_id] %>
+        <%= Menu.find_by(id: params[:menu_id]).name %>
+    <% end %><br /><br />
 
     <%= f.label :category_name, "Category" %><br />
     <%= f.text_field :category_name, list: "categories" %>
