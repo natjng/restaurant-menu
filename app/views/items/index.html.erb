@@ -1,10 +1,9 @@
-<h1>All Items</h1>
+<br>
+<%= link_to @menu.name, @menu if @menu %>
 
-<% current_user.restaurants.each do |r| %>
-    <% r.menus.each do |menu| %>
-        <% menu.items.each do |item| %>
-            <%= link_to item.name, item %>
-            <%= number_to_currency(item.price) %><br>
-        <% end %>
-    <% end %>
+<h1>Items</h1>
+
+<% @items.each do |item| %>
+    <%= link_to item.name, item %>
+    <%= number_to_currency(item.price) %><br>
 <% end %>
