@@ -22,7 +22,8 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id
                 render 'users/show'
             else
-                render :new
+                flash[:message] = "Incorrect login information. Please try again."
+                redirect_to '/login'
             end
         end
     end

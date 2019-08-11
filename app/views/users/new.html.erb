@@ -1,16 +1,30 @@
 <h1>Signup</h1>
 
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3>
+      <%= pluralize(@user.errors.count, "error") %>:
+    </h3>
+ 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @user do |f| %>
-    <%= f.label :name %><br />
+    <%= f.label :name, "Name*" %><br />
     <%= f.text_field :name %><br /><br />
 
-    <%= f.label :email %><br />
+    <%= f.label :email, "Email*" %><br />
     <%= f.email_field :email %><br /><br />
 
-    <%= f.label :password %><br />
+    <%= f.label :password, "Password*" %><br />
     <%= f.password_field :password %><br /><br />
 
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Confirm Password*" %><br />
     <%= f.password_field :password_confirmation %><br /><br />
 
     <%= f.submit %>
