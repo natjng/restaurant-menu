@@ -5,8 +5,6 @@ class Restaurant < ApplicationRecord
   belongs_to :user
   has_many :menus
 
-  scope :address_like, -> { where("address LIKE ?", "%ca%") }
-
   def self.restaurant_menu_categories
     Restaurant.all.map do |r|
       r.menus.each do |menu|
@@ -14,7 +12,5 @@ class Restaurant < ApplicationRecord
       end
     end
   end
-
-  # restaurants, menus, categories
 
 end
