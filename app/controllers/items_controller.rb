@@ -60,6 +60,7 @@ class ItemsController < ApplicationController
     end
 
     def no_price
+        @items = Item.no_price
     end
 
     def recently_updated
