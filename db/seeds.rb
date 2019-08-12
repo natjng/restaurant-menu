@@ -21,7 +21,7 @@ seafood = Category.create(name: "Seafood")
 meat = Category.create(name: "Meat")
 
 Item.create(name: "Oysters on the Half Shell", description: "dashi mignonette, shallot, lemon | half dozen", image: "https://images.unsplash.com/photo-1529476498401-2d62bcfe433a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80", price: 28, menu_id: momofuku_dinner.id, category_id: raw_bar.id)
-Item.create(name: "Striped Bass Crudo", description: "avocado, cucumber, turnip", image: "https://unsplash.com/photos/hEKN_m0qGMA", price: 22, menu_id: momofuku_dinner.id, category_id: raw_bar.id)
+Item.create(name: "Striped Bass Crudo", description: "avocado, cucumber, turnip", image: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80", price: 22, menu_id: momofuku_dinner.id, category_id: raw_bar.id)
 Item.create(name: "Spicy Cucumbers", description: "togarashi, toasted almond", image: "", price: 9, menu_id: momofuku_dinner.id, category_id: small_plates.id)
 Item.create(name: "Pork Belly Bun", description: "hoisin, scallion, cucumber", image: "https://s3-media3.fl.yelpcdn.com/bphoto/TQx8g5SreKzEdTo3Fd6X3Q/o.jpg", price: 14, menu_id: momofuku_dinner.id, category_id: small_plates.id)
 Item.create(name: "Grilled Japanese Squid", description: "togarashi, lemon, smoked trout roe", image: "https://s3-media1.fl.yelpcdn.com/bphoto/YXPFui1zAauyWwEznrPj-Q/o.jpg", price: 28, menu_id: momofuku_dinner.id, category_id: seafood.id)
@@ -48,7 +48,7 @@ momofuku_wine = Menu.create(name: "Wine", description: "Wine by the Glass (5oz)"
 
 bubbles = Category.create(name: "Bubbles")
 white = Category.create(name: "White")
-rose = Category.create(name: "Rose")
+rose = Category.create(name: "Rosé")
 red = Category.create(name: "Red")
 
 Item.create(name: "Prosecco Bisol Jeio", description: "Veneto, Italy", image: "", price: 15, menu_id: momofuku_wine.id, category_id: bubbles.id)
