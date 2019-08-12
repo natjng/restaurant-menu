@@ -34,7 +34,7 @@ class User < ApplicationRecord
                 end
             end
         end
-        user_categories
+        user_categories.uniq
     end
 
     def self.all_menus(current_user)
