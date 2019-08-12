@@ -1,6 +1,7 @@
 <h1>Menus</h1>
 
-<%= link_to "+ Menu", new_menu_path %>
+<br>
+<a class="btn btn-primary" href="<%= new_menu_path %>" role="button">New Menu</a>
 <br><br>
 
 <% current_user.restaurants.each do |r| %>

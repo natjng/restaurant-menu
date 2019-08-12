@@ -1,10 +1,10 @@
 <h1>Edit Item</h1>
 
 <% if @item.errors.any? %>
-  <div id="error_explanation">
-    <h3>
+  <div class="alert alert-danger" role="alert">
+    <h4>
       <%= pluralize(@item.errors.count, "error") %>:
-    </h3>
+    </h4>
  
     <ul>
     <% @item.errors.full_messages.each do |msg| %>

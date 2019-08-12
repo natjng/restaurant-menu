@@ -1,7 +1,7 @@
 <h1>Categories</h1>
 
-<%= link_to "+ Category", new_category_path %>
-
+<br>
+<a class="btn btn-primary" href="<%= new_category_path %>" role="button">New Category</a>
 <br><br>
 
 <% current_user.restaurants.each do |r| %>

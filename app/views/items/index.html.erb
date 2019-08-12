@@ -1,15 +1,17 @@
-<br>
+<a class="btn btn-outline-primary" href="<%= items_recently_updated_path %>" role="button">Recently Updated Items</a>
+<a class="btn btn-outline-primary" href="<%= items_no_price_path %>" role="button">Items without Prices</a>
+
+<br><br>
 <%= link_to @menu.name, @menu if @menu %>
 
 <h1>Items</h1>
 
-<%= link_to "+ Item", new_item_path %>
+<br>
+<a class="btn btn-primary" href="<%= new_item_path %>" role="button">New Item</a>
 <br><br>
 
 <% @items.each do |item| %>
     <%= link_to item.name, item %>
     <%= number_to_currency(item.price) %><br>
 <% end %>
-
 <br><br>
-<%= link_to "Items without Prices", items_no_price_path %>

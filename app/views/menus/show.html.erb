@@ -5,19 +5,18 @@
 <p><%= @menu.description %></p>
 
 <% @menu.categories.uniq.each do |category| %>
-        <h3><%= link_to category.name, category %></h3>
-        <% category.items.each do |item| %>
-            <% if item.menu == @menu %>
-                <%= link_to item.name, item %>
-                <%= number_to_currency(item.price) %><br />
-            <% end %>
-        <% end %><br />
+    <h3><%= link_to category.name, category %></h3>
+    <% category.items.each do |item| %>
+        <% if item.menu == @menu %>
+            <%= link_to item.name, item %>
+            <%= number_to_currency(item.price) %><br />
+        <% end %>
+    <% end %><br />
 <% end %>
 
-<br /><br />
+<br />
+<a class="btn btn-outline-primary" href="<%= new_menu_item_path(@menu) %>" role="button">Add Item to Menu</a>
 
-<%= link_to "Add Item to Menu", new_menu_item_path(@menu) %>
+<br /><br /><br />
 
-<br /><br />
-
-<%= link_to "Edit Menu", edit_menu_path(@menu) %> | <%= link_to "Delete Menu", @menu, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Edit Menu", edit_menu_path(@menu) %> | <%= link_to "Delete Menu", @menu, method: :delete, data: { confirm: "Are you sure?" } %> 

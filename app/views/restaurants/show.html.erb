@@ -5,7 +5,7 @@
 <b>Address: </b><%= @restaurant.address %><br />
 <b>Hours: </b><%= @restaurant.hours %><br />
 <b>Phone Number: </b><%= number_to_phone(@restaurant.phone_number) %>
-</div>
+</div><br><br>
 
 <h3>Menus</h3>
 <% @restaurant.menus.each do |menu| %>

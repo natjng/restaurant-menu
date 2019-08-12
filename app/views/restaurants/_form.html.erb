@@ -1,8 +1,10 @@
+
+
 <% if @restaurant.errors.any? %>
-  <div id="error_explanation">
-    <h3>
+  <div class="alert alert-danger" role="alert">
+    <h4>
       <%= pluralize(@restaurant.errors.count, "error") %>:
-    </h3>
+    </h4>
  
     <ul>
     <% @restaurant.errors.full_messages.each do |msg| %>
