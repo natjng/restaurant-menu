@@ -25,4 +25,26 @@ class User < ApplicationRecord
         user_items
     end
 
+    def self.all_categories(current_user)
+        user_categories = []
+        current_user.restaurants.each do |r|
+            r.menus.each do |menu|
+                menu.categories.each do |category|
+                    user_categories << category
+                end
+            end
+        end
+        user_categories
+    end
+
+    def self.all_menus(current_user)
+        user_menus = []
+        current_user.restaurants.each do |r|
+            r.menus.each do |menu|
+                user_menus << menu
+            end
+        end
+        user_menus
+    end
+
 end
