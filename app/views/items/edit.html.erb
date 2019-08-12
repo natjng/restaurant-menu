@@ -17,7 +17,7 @@
 <%= form_for @item do |f| %>
 
     <%= f.label :menu_id, "Menu" %><br />
-    <%= f.collection_select(:menu_id, Menu.all, :id, :name) %>
+    <%= f.collection_select(:menu_id, User.all_menus(current_user), :id, :name) %>
     <br /><br />
 
     <%= f.label :category_name, "Category" %><br />
@@ -43,5 +43,5 @@
 
     <%= f.submit %>
 <% end %>
-
+<br />
 <%= button_to "Cancel", menus_path, method: "get" %>
