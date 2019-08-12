@@ -2,7 +2,7 @@
 
 <h2>Menu: <%= @menu.name %></h2>
 
-<p><%= @menu.description %></p>
+<p><%= @menu.description %></p><br>
 
 <% @menu.categories.uniq.each do |category| %>
     <h3><%= link_to category.name, category %></h3>
