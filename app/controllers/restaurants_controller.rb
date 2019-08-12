@@ -1,9 +1,6 @@
 class RestaurantsController < ApplicationController
     before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
-    def show
-    end
-
     def new
         @restaurant = Restaurant.new
     end
@@ -17,9 +14,6 @@ class RestaurantsController < ApplicationController
         end
     end
 
-    def edit
-    end
-
     def update
         if @restaurant.update(restaurant_params)
             redirect_to @restaurant
@@ -31,9 +25,6 @@ class RestaurantsController < ApplicationController
     def destroy
         @restaurant.destroy
         redirect_to restaurants_path
-    end
-
-    def address_like
     end
 
     private
