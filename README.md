@@ -1,6 +1,6 @@
 # Restaurant Menu
 
-Restaurant Menu is a Ruby on Rails Application that allows users to create restaurant menus. Restautants can have many menus with categories and items. 
+Restaurant Menu is a Ruby on Rails Application that allows users to create restaurant menus. Restaurants can have many menus with categories and items. 
 
 ## Installation
 
