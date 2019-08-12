@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback', to: 'sessions#create'
 
   get '/items/no_price', to: 'items#no_price'
+  get '/items/recently_updated', to: 'items#recently_updated'
   
   resources :menus do
     resources :items, only: [:index, :show, :new, :edit]
