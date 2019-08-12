@@ -1,0 +1,5 @@
+<h1>Recently Updated Items</h1>
+
+<% Item.recently_updated.limit(10).each do |item| %>
+    <%= link_to item.name, item %><br>
+<% end %>

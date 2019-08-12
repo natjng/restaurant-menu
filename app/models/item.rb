@@ -9,6 +9,8 @@ class Item < ApplicationRecord
 
   scope :no_price, -> { where(price: nil) }
 
+  scope :recently_updated, -> { order(updated_at: :desc) }
+
   def category_name
     self.try(:category).try(:name)
   end

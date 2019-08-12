@@ -60,11 +60,9 @@ class ItemsController < ApplicationController
     end
 
     def no_price
-        # render :no_price
     end
 
     def recently_updated
-
     end
 
     private
