@@ -48,14 +48,16 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
-          <div class="sidebar">
-            <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
-            <a class="btn btn-link" href="<%= new_restaurant_path %>" role="button">+ Restaurant</a>
-            <a class="btn btn-link" href="<%= new_menu_path %>" role="button">+ Menu</a>
-            <a class="btn btn-link" href="<%= new_category_path %>" role="button">+ Category</a>
-            <a class="btn btn-link" href="<%= new_item_path %>" role="button">+ Item</a>
+          <% if logged_in? %>
+            <div class="sidebar">
+              <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+              <a class="btn btn-link" href="<%= new_restaurant_path %>" role="button">+ Restaurant</a>
+              <a class="btn btn-link" href="<%= new_menu_path %>" role="button">+ Menu</a>
+              <a class="btn btn-link" href="<%= new_category_path %>" role="button">+ Category</a>
+              <a class="btn btn-link" href="<%= new_item_path %>" role="button">+ Item</a>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
 
         <div class="col-sm-9">
