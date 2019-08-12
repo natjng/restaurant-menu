@@ -23,7 +23,7 @@
         <%= Menu.find_by(id: params[:menu_id]).name %>
     <% end %><br /><br />
 
-    <%= f.label :category_name, "Category" %><br />
+    <%= f.label :category_name, "Category*" %><br />
     <%= f.text_field :category_name, list: "categories" %>
     <datalist id="categories">
         <% User.all_categories(current_user).each do |cat| %>
@@ -32,7 +32,7 @@
     </datalist>
     <br /><br />
 
-    <%= f.label :name %><br />
+    <%= f.label :name, "Name*" %><br />
     <%= f.text_field :name %><br /><br />
 
     <%= f.label :description %><br />
