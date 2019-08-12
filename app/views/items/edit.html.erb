@@ -23,7 +23,7 @@
     <%= f.label :category_name, "Category" %><br />
     <%= f.text_field :category_name, list: "categories" %>
     <datalist id="categories">
-        <% Category.all.each do |cat| %>
+        <% User.all_categories(current_user).each do |cat| %>
             <option value="<%= cat.name %>">
         <% end %>
     </datalist>
