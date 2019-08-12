@@ -6,6 +6,6 @@
 
 <% current_user.restaurants.each do |r| %>
     <% r.menus.each do |menu| %>
-        <%= link_to menu.name, menu %> (<%= link_to menu.restaurant.name, menu.restaurant %>)<br>
+        <%= link_to menu.name, menu %> | <%= link_to menu.restaurant.name, menu.restaurant %><br>
     <% end %>
 <% end %>
