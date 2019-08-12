@@ -1,24 +1,13 @@
-# README
+# Restaurant Menu
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Restaurant Menu is a Ruby on Rails Application that allows users to create restaurant menus. Restautants can have many menus with categories and items. 
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Clone file. 
 
-* System dependencies
+## Usage
 
-* Configuration
+After cloning file, run `bundle install`, run `rails db:migrate`, run `rails s` to start your server, and visit https://localhost:3000/.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Create a new account to start creating your restaurant menus.
