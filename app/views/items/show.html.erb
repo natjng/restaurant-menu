@@ -1,20 +1,20 @@
 <br>
 <div>
-<%= link_to @item.menu.restaurant.name, @item.menu.restaurant %> / <%= link_to @item.menu.name, @item.menu %> / <%= link_to @item.category.name, @item.category %>
+    <%= link_to @item.menu.restaurant.name, @item.menu.restaurant %> / <%= link_to @item.menu.name, @item.menu %> / <%= link_to @item.category.name, @item.category %>
 </div>
 
 <br>
 <br>
 
 <div class="w-50 p-3">
-<img src="<%= @item.image %>" class="img-fluid">
+    <img src="<%= @item.image %>" class="img-fluid">
 </div>
 
 <h1><%= @item.name %></h1><br />
 
 <div>
-<%= number_to_currency(@item.price) %><br />
-<%= @item.description %><br />
+    <%= number_to_currency(@item.price) %><br />
+    <%= @item.description %><br />
 </div>
 
 <br />
