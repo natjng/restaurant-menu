@@ -60,10 +60,13 @@ class ItemsController < ApplicationController
     end
 
     def no_price
-        @items = Item.no_price
+        menus = User.menu_ids(current_user)
+        @items = Item.users_no_price(menus)
     end
 
     def recently_updated
+        menus = User.menu_ids(current_user)
+        @items = Item.recently_updated(menus).limit(10)
     end
 
     private
