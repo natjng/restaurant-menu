@@ -2,6 +2,7 @@ class MenusController < ApplicationController
     before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
     def show
+        menu_dne_or_not_users
     end
 
     def new
@@ -15,6 +16,10 @@ class MenusController < ApplicationController
         else
             render :new
         end
+    end
+
+    def edit
+        menu_dne_or_not_users
     end
 
     def update
@@ -39,4 +44,13 @@ class MenusController < ApplicationController
     def menu_params
         params.require(:menu).permit(:name, :description, :restaurant_id)
     end
+
+    def menu_dne_or_not_users
+        if @menu.nil?
+            redirect_to menus_path, alert: "Menu not found."
+        elsif @menu.restaurant.user != current_user
+            redirect_to menus_path, alert: "😢It looks like you don't have access to this page."
+        end
+    end
+
 end
