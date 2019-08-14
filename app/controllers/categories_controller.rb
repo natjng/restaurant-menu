@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:show, :edit, :update]
 
+    def show
+        category_dne_or_not_users
+    end
+
     def new
         @category = Category.new
     end
@@ -12,6 +16,10 @@ class CategoriesController < ApplicationController
         else
             render :new
         end
+    end
+
+    def edit
+        category_dne_or_not_users
     end
 
     def update
@@ -30,5 +38,13 @@ class CategoriesController < ApplicationController
 
     def category_params
         params.require(:category).permit(:name)
+    end
+
+    def category_dne_or_not_users
+        if @category.nil?
+            redirect_to categories_path, alert: "Category not found."
+        elsif User.all_categories(current_user).none?(@category)
+            redirect_to categories_path, alert: "😢It looks like you don't have access to this page."
+        end
     end
 end
