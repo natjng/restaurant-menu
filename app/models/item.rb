@@ -7,9 +7,9 @@ class Item < ApplicationRecord
   validates_associated :menu
   validates_associated :category
 
-  scope :no_price, -> { where(price: nil) }
+  scope :users_no_price, ->(menus) { where(price: nil).where("menu_id IN (?)", menus) }
 
-  scope :recently_updated, -> { order(updated_at: :desc) }
+  scope :recently_updated, ->(menus) { where("menu_id IN (?)", menus).order(updated_at: :desc) }
 
   def category_name
     self.try(:category).try(:name)
