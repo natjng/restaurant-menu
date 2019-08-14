@@ -1,6 +1,10 @@
 class RestaurantsController < ApplicationController
     before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
+    def show 
+        restaurant_dne_or_not_users
+    end
+
     def new
         @restaurant = Restaurant.new
     end
@@ -12,6 +16,10 @@ class RestaurantsController < ApplicationController
         else
             render :new
         end
+    end
+
+    def edit 
+        restaurant_dne_or_not_users
     end
 
     def update
@@ -36,4 +44,13 @@ class RestaurantsController < ApplicationController
     def restaurant_params
         params.require(:restaurant).permit!
     end
+
+    def restaurant_dne_or_not_users
+        if @restaurant.nil?
+            redirect_to restaurants_path, alert: "Restaurant not found."
+        elsif @restaurant.user != current_user
+            redirect_to restaurants_path, alert: "😢It looks like you don't have access to this page."
+        end
+    end
+
 end
