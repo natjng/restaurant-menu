@@ -5,12 +5,4 @@ class Restaurant < ApplicationRecord
   belongs_to :user
   has_many :menus
 
-  def self.restaurant_menu_categories
-    Restaurant.all.map do |r|
-      r.menus.each do |menu|
-        menu.categories
-      end
-    end
-  end
-
 end
