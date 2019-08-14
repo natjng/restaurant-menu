@@ -47,4 +47,8 @@ class User < ApplicationRecord
         user_menus
     end
 
+    def self.menu_ids(current_user)
+        User.all_menus(current_user).map{|menu| menu.id}
+    end
+
 end
