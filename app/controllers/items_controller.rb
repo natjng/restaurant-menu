@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
             @menu = Menu.find_by(id: params[:menu_id])
             if @menu.nil?
                 redirect_to menus_path, alert: "Menu not found."
+            elsif @menu.restaurant.user != current_user
+                redirect_to menus_path, alert: "😢It looks like you don't have access to this page."
             else
                 @items = @menu.items
             end
@@ -15,17 +17,16 @@ class ItemsController < ApplicationController
     end
 
     def show
-        if params[:menu_id]
+        if params[:menu_id] && !Menu.exists?(params[:menu_id])
+            redirect_to menus_path, alert: "Menu not found."
+        elsif params[:menu_id] && Menu.exists?(params[:menu_id])
             @menu = Menu.find_by(id: params[:menu_id])
             @item = @menu.items.find_by(id: params[:id])
             if @item.nil?
                 redirect_to menu_items_path(@menu), alert: "Item not found."
             end
         else
-            @item = Item.find_by(id: params[:id])
-            if @item.nil?
-                redirect_to items_path, alert: "Item not found."
-            end
+            item_dne_or_not_users
         end
     end
 
@@ -44,6 +45,10 @@ class ItemsController < ApplicationController
         else
             render :new
         end
+    end
+
+    def edit
+        item_dne_or_not_users
     end
 
     def update
@@ -77,6 +82,14 @@ class ItemsController < ApplicationController
 
     def item_params
         params.require(:item).permit(:name, :description, :price, :image, :menu_id, :category_name)
+    end
+
+    def item_dne_or_not_users
+        if @item.nil?
+            redirect_to items_path, alert: "Item not found."
+        elsif @item.menu.restaurant.user != current_user
+            redirect_to items_path, alert: "😢It looks like you don't have access to this page."
+        end
     end
 
 end
