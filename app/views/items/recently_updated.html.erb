@@ -1,5 +1,8 @@
+<a class="btn btn-outline-primary" href="<%= items_path %>" role="button">Back to Items</a>
+<br><br>
+
 <h1>Recently Updated Items</h1>
 
-<% Item.recently_updated.limit(10).each do |item| %>
+<% @items.each do |item| %>
     <%= link_to item.name, item %><br>
 <% end %>
