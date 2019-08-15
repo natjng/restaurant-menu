@@ -17,13 +17,13 @@
 <%= form_for @item do |f| %>
 
     <%= f.label :menu_id, "Menu" %><br />
-    <%= f.collection_select(:menu_id, User.all_menus(current_user), :id, :name) %>
+    <%= f.collection_select(:menu_id, current_user.menus, :id, :name) %>
     <br /><br />
 
     <%= f.label :category_name, "Category" %><br />
     <%= f.text_field :category_name, list: "categories" %>
     <datalist id="categories">
-        <% User.all_categories(current_user).each do |cat| %>
+        <% current_user.categories.uniq.each do |cat| %>
             <option value="<%= cat.name %>">
         <% end %>
     </datalist>

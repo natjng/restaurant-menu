@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
     def category_dne_or_not_users
         if @category.nil?
             redirect_to categories_path, alert: "Category not found."
-        elsif User.all_categories(current_user).none?(@category)
+        elsif current_user.categories.uniq.none?(@category)
             redirect_to categories_path, alert: "😢It looks like you don't have access to this page."
         end
     end

@@ -26,7 +26,7 @@
     <%= f.label :category_name, "Category*" %><br />
     <%= f.text_field :category_name, list: "categories" %>
     <datalist id="categories">
-        <% User.all_categories(current_user).each do |cat| %>
+        <% current_user.categories.uniq.each do |cat| %>
             <option value="<%= cat.name %>">
         <% end %>
     </datalist>

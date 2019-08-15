@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
                 @items = @menu.items
             end
         else
-            @items = User.all_items(current_user)
+            @items = current_user.items
         end
     end
 
@@ -65,13 +65,11 @@ class ItemsController < ApplicationController
     end
 
     def no_price
-        menus = User.menu_ids(current_user)
-        @items = Item.users_no_price(menus)
+        @items = Item.no_price(item_ids)
     end
 
     def recently_updated
-        menus = User.menu_ids(current_user)
-        @items = Item.recently_updated(menus).limit(10)
+        @items = Item.recently_updated(item_ids).limit(10)
     end
 
     private
@@ -90,6 +88,10 @@ class ItemsController < ApplicationController
         elsif @item.menu.restaurant.user != current_user
             redirect_to items_path, alert: "😢It looks like you don't have access to this page."
         end
+    end
+
+    def item_ids
+        current_user.items.map{|item| item.id}
     end
 
 end
