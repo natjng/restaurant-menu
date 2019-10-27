@@ -4,6 +4,19 @@ Restaurant Menu is a complete Ruby on Rails MVC application that allows users to
 
 Users can have many restaurants. A Restaurant can have many menus with categories and items. 
 
+## Features
+
+- Third party user authentication with OAuth 2.0 Facebook strategy
+- Standard user authentication with BCrypt
+- Server side Active Record validations and client side form display of validation errors for validating user input
+- Access recently updated items in the Items tab or at /items/recently_updated
+- Quickly filter items without prices in the Items tab or at /items/no_price
+- Option to include item image on item show page
+- Follows MVC framework
+- Uses RESTful routes
+- Nested Item resource using RESTful routes (i.e. /menus/1/items, /menus/1/items/new)
+- Styled using Bootstrap
+
 ## Installation
 
 Clone repository. 
